@@ -9,15 +9,7 @@ function onInit() {
 
 function onAlarm(alarm) {
   console.log('Got alarm', alarm);
-  chrome.alarms.get('refresh', function(alarm) {
-    if (alarm) {
-      console.log('Refresh alarm exists. Yay.');
-    } else {
-      console.log('Refresh alarm doesn\'t exist!? ' +
-                  'Refreshing now and rescheduling.');
-    startRequest({scheduleRequest:true});
-    }
-  });
+  startRequest({scheduleRequest:true});
 }
 
 chrome.runtime.onInstalled.addListener(onInit);
